@@ -44,7 +44,7 @@
 <div class="cartbar"><button id="cartOpen" class="cartbtn" disabled><span>🛒 Корзина · <b id="count">0</b></span><span id="total">0 сум →</span></button></div>
 <div class="modal" id="cartModal"><div class="sheet"><h2>🛒 Твой заказ</h2><p class="muted">Проверь товары перед продолжением.</p><div id="cartItems"></div><label class="field" for="username">Твой Telegram username</label><input class="input" id="username" placeholder="@username" autocomplete="off"><label class="field" for="comment">Комментарий (необязательно)</label><input class="input" id="comment" placeholder="Например, кому отправить подарок"><label class="field" for="paymentMethod">Способ оплаты</label>
 <select class="input" id="paymentMethod"><option value="uzumbank">UZUMBANK</option><option value="uzcard">UZCARD</option></select>
-<div class="paybox" id="paymentDetails"><b>💳 UZUMBANK</b><br>Номер карты: <b>УКАЖИТЕ_НОМЕР_КАРТЫ</b><br>Имя и фамилия: <b>УКАЖИТЕ_ИМЯ_ВЛАДЕЛЬЦА</b><br><span style="color:#ffcf66">Замените реквизиты на свои перед публикацией.</span></div>
+<div class="paybox" id="paymentDetails"><b>💳 UZUMBANK</b><br>Номер карты: <b>пусто...</b><br>Имя и фамилия: <b>пусто...</b><br><span style="color:#ffcf66">Замените реквизиты на свои перед публикацией.</span></div>
 <div class="paybox"><b>🔎 Проверка платежа</b><br>Автопроверка и автоматическая выдача включатся после подключения API платёжного провайдера. Сейчас оплата не проверяется и товар автоматически не выдаётся.</div>
 <div class="actions"><button class="secondary" id="closeModal">Назад</button><button class="primary" id="placeOrder">Оформить заказ</button></div></div></div>
 <div class="modal" id="resultModal"><div class="sheet"><h2>✨ Заказ подготовлен</h2><p class="muted" id="resultText"></p><div class="paybox" id="orderSummary"></div><p class="muted">Это демонстрация интерфейса. Заказ не отправлен администратору, а оплата не подтверждается, пока не подключён backend.</p><div class="actions"><button class="primary" id="finish">Понятно</button></div></div></div>
@@ -96,8 +96,8 @@ const paymentDetails = document.getElementById('paymentDetails');
 document.getElementById('paymentMethod').addEventListener('change', (e) => {
   const bank = e.target.value;
   paymentDetails.innerHTML = bank === 'uzcard'
-    ? '<b>💳 UZCARD</b><br>Номер карты: <b>УКАЖИТЕ_НОМЕР_КАРТЫ</b><br>Имя и фамилия: <b>УКАЖИТЕ_ИМЯ_ВЛАДЕЛЬЦА</b><br><span style="color:#ffcf66">Замените реквизиты на свои перед публикацией.</span>'
-    : '<b>💳 UZUMBANK</b><br>Номер карты: <b>УКАЖИТЕ_НОМЕР_КАРТЫ</b><br>Имя и фамилия: <b>УКАЖИТЕ_ИМЯ_ВЛАДЕЛЬЦА</b><br><span style="color:#ffcf66">Замените реквизиты на свои перед публикацией.</span>';
+    ? '<b>💳 UZCARD</b><br>Номер карты: <b>5614 6828 7736 3459</b><br>Имя и фамилия: <b>R.B</b><br><span style="color:#ffcf66">Замените реквизиты на свои перед публикацией.</span>'
+    : '<b>💳 UZUMBANK</b><br>Номер карты: <b>Пусто...</b><br>Имя и фамилия: <b>пусто...</b><br><span style="color:#ffcf66">Замените реквизиты на свои перед публикацией.</span>';
 });
 document.getElementById('placeOrder').onclick=()=>{
  const username=document.getElementById('username').value.trim();
